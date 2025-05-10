@@ -1,20 +1,17 @@
-package br.edu.utfpr.pb.pw44s.server.model;
+package br.edu.utfpr.pb.pw44s.server.dto;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
-@Entity
-@Table(name = "tb_game")
-@Getter @Setter
+@Data
 @NoArgsConstructor @AllArgsConstructor
-@Builder
-public class Game {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class GameDTO {
     private Long id;
 
     @NotNull
@@ -25,7 +22,10 @@ public class Game {
     private String description;
 
     @NotNull
-    private BigDecimal price = BigDecimal.ZERO;
+    private BigDecimal price;
 
     private String image;
+
+    private List<GenreDTO> genres;
+
 }
