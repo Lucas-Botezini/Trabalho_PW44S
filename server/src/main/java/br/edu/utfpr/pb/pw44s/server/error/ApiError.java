@@ -1,4 +1,4 @@
-package edu.br.utfpr.pb.pw44s.server.error;
+package br.edu.utfpr.pb.pw44s.server.error;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

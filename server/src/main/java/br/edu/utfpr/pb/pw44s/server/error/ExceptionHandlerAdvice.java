@@ -1,4 +1,4 @@
-package edu.br.utfpr.pb.pw44s.server.error;
+package br.edu.utfpr.pb.pw44s.server.error;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

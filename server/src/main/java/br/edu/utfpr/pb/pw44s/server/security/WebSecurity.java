@@ -27,7 +27,9 @@ import static org.springframework.security.web.util.matcher.AntPathRequestMatche
 @EnableWebSecurity
 @Configuration
 public class WebSecurity {
+    // Service responsável por buscar um usuário no banco de dados por meio do método loadByUsername()
     private final AuthService authService;
+    // Objeto responsável por realizar o tratamento de exceção quando o usuário informar credenciais incorretas ao autenticar-se.
     private final AuthenticationEntryPoint authenticationEntryPoint;
 
     public WebSecurity(AuthService authService, AuthenticationEntryPoint authenticationEntryPoint) {
@@ -38,18 +40,19 @@ public class WebSecurity {
     @Bean
     @SneakyThrows
     public SecurityFilterChain filterChain(HttpSecurity http) {
-        AuthenticationManagerBuilder authenticationManagerBuilder =
-                http.getSharedObject(AuthenticationManagerBuilder.class);
+        AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.userDetailsService(authService).passwordEncoder(passwordEncoder());
+
         // authenticationManager -> responsável por gerenciar a autenticação dos usuários
         AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
-
         //Configuração para funcionar o console do H2.
         http.headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));
         // desabilita o uso de csrf
         http.csrf(AbstractHttpConfigurer::disable);
+
         // Adiciona configuração de CORS
         http.cors(cors -> corsConfigurationSource());
+
         //define o objeto responsável pelo tratamento de exceção ao entrar com credenciais inválidas
         http.exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint(authenticationEntryPoint));
 
@@ -59,8 +62,6 @@ public class WebSecurity {
                 .requestMatchers(antMatcher(HttpMethod.POST, "/user/**")).permitAll()
                 //permite que a rota "/error" seja acessada por qualquer requisição mesmo o usuário não estando autenticado
                 .requestMatchers(antMatcher("/error/**")).permitAll()
-                //permite que a rota "/h2-console" seja acessada por qualquer requisição mesmo o usuário não estando autenticado
-                .requestMatchers(antMatcher("/h2-console/**")).permitAll()
                 //as demais rotas da aplicação só podem ser acessadas se o usuário estiver autenticado
                 .anyRequest().authenticated()
         );
@@ -70,7 +71,8 @@ public class WebSecurity {
                 //Filtro da Autorização - - sobrescreve o método padrão do Spring Security para Autorização.
                 .addFilter(new JWTAuthorizationFilter(authenticationManager, authService))
                 //Como será criada uma API REST e todas as requisições que necessitam de autenticação/autorização serão realizadas com o envio do token JWT do usuário, não será necessário fazer controle de sessão no *back-end*.
-                .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                );
         return http.build();
     }
 
@@ -81,9 +83,7 @@ public class WebSecurity {
     }
 
     /*
-    O compartilhamento de recursos de origem cruzada (CORS) é um mecanismo para integração de aplicativos.
-    O CORS define uma maneira de os aplicativos Web clientes carregados em um domínio interagirem com recursos em um domínio diferente.
-*/
+    O compartilhamento de recursos de origem cruzada (CORS) é um mecanismo para integração de aplicativos. O CORS define uma maneira de os aplicativos Web clientes carregados em um domínio interagirem com recursos em um domínio diferente. */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
