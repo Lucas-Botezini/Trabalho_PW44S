@@ -62,6 +62,8 @@ public class WebSecurity {
                 .requestMatchers(antMatcher(HttpMethod.POST, "/user/**")).permitAll()
                 .requestMatchers(antMatcher(HttpMethod.POST, "/genre/**")).permitAll()
                 .requestMatchers(antMatcher(HttpMethod.GET, "/genre/**")).permitAll()
+                .requestMatchers(antMatcher(HttpMethod.POST, "/game/**")).permitAll()
+                .requestMatchers(antMatcher(HttpMethod.GET, "/game/**")).permitAll()
                 //permite que a rota "/error" seja acessada por qualquer requisição mesmo o usuário não estando autenticado
                 .requestMatchers(antMatcher("/error/**")).permitAll()
                 //as demais rotas da aplicação só podem ser acessadas se o usuário estiver autenticado
