@@ -4,7 +4,12 @@ import br.edu.utfpr.pb.pw44s.server.dto.UserDTO;
 import br.edu.utfpr.pb.pw44s.server.model.User;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import br.edu.utfpr.pb.pw44s.server.service.IUserService;
+import br.edu.utfpr.pb.pw44s.server.shared.GenericResponse;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,4 +35,11 @@ public class UserController extends CrudController<User, UserDTO, Long>{
         return this.modelMapper;
     }
 
+    @PostMapping("/new")
+    public ResponseEntity<GenericResponse> createUser(@RequestBody @Valid UserDTO entity) {
+        userService.save(modelMapper.map(entity, User.class));
+        GenericResponse response = new GenericResponse();
+        response.setMessage("User created");
+        return ResponseEntity.ok(response);
+    }
 }

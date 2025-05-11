@@ -7,8 +7,10 @@ import br.edu.utfpr.pb.pw44s.server.repository.UserRepository;
 import br.edu.utfpr.pb.pw44s.server.service.IAddressService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 
+@Service
 public class AddressServiceImpl extends CrudServiceImpl<Address, Long> implements IAddressService {
     private final AddressRepository addressRepository;
     private final ModelMapper modelMapper;

@@ -16,9 +16,8 @@ public class Address {
     private Long id;
 
     @NotNull
-    @Column(nullable = false)
     @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @NotNull

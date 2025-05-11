@@ -60,7 +60,6 @@ public class WebSecurity {
         http.authorizeHttpRequests((authorize) -> authorize
                 //permite que a rota "/users" seja acessada, mesmo sem o usuário estar autenticado desde que o método HTTP da requisição seja POST
                 .requestMatchers(antMatcher(HttpMethod.POST, "/user/**")).permitAll()
-                .requestMatchers(antMatcher(HttpMethod.POST, "/genre/**")).permitAll()
                 .requestMatchers(antMatcher(HttpMethod.GET, "/genre/**")).permitAll()
                 .requestMatchers(antMatcher(HttpMethod.POST, "/game/**")).permitAll()
                 .requestMatchers(antMatcher(HttpMethod.GET, "/game/**")).permitAll()
