@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.pw44s.server.dto;
 
+import br.edu.utfpr.pb.pw44s.server.model.Game;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
@@ -15,7 +16,7 @@ public class OrderItemsDTO {
     private Long id;
 
     @NotNull
-    private Long game;
+    private Game game;
 
     @Null
     private BigDecimal unitPrice;
