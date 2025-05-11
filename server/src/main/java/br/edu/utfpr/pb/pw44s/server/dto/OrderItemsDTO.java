@@ -16,7 +16,7 @@ public class OrderItemsDTO {
     private Long id;
 
     @NotNull
-    private Game game;
+    private GameDTO game;
 
     @Null
     private BigDecimal unitPrice;
