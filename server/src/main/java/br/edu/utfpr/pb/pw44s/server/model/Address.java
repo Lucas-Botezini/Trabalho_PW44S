@@ -16,9 +16,28 @@ public class Address {
     private Long id;
 
     @NotNull
-    @Size(min = 4, max = 100)
-    private String name;
+    @Column(nullable = false)
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id")
+    private User user;
 
+    @NotNull
+    @Size(min = 2, max = 100)
+    private String street;
 
+    @Size(max = 200)
+    private String complement;
+
+    @NotNull
+    @Column(length = 9)
+    private String cep;
+
+    @NotNull
+    @Size(min = 2, max = 100)
+    private String city;
+
+    @NotNull
+    @Size(min = 2, max = 100)
+    private String state;
 
 }
