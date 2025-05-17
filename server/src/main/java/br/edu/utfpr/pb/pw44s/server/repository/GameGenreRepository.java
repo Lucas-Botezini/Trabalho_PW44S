@@ -1,11 +1,14 @@
 package br.edu.utfpr.pb.pw44s.server.repository;
 
+import br.edu.utfpr.pb.pw44s.server.dto.GenreDTO;
 import br.edu.utfpr.pb.pw44s.server.model.Game;
 import br.edu.utfpr.pb.pw44s.server.model.GameGenre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface GameGenreRepository extends JpaRepository<GameGenre, Long> {
-    void deleteAllByGame(Game game);
+    List<GameGenre> findByGame(Game game);
 }

@@ -4,5 +4,5 @@ import br.edu.utfpr.pb.pw44s.server.dto.AddressDTO;
 import br.edu.utfpr.pb.pw44s.server.model.Address;
 
 public interface IAddressService extends ICrudService<Address, Long> {
-    public AddressDTO saveAddressDTO(AddressDTO addressDTO);
+    public AddressDTO saveAddress(AddressDTO addressDTO);
 }

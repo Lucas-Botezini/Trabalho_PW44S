@@ -33,6 +33,6 @@ public class AddressController extends CrudController<Address, AddressDTO, Long>
 
     @Override
     public ResponseEntity<AddressDTO> create(AddressDTO entity) {
-        return ResponseEntity.ok(addressService.saveAddressDTO(entity));
+        return ResponseEntity.ok(addressService.saveAddress(entity));
     }
 }

@@ -1,10 +1,13 @@
 package br.edu.utfpr.pb.pw44s.server.service.impl;
 
+import br.edu.utfpr.pb.pw44s.server.model.Order;
 import br.edu.utfpr.pb.pw44s.server.model.OrderItems;
 import br.edu.utfpr.pb.pw44s.server.repository.OrderItemsRepository;
 import br.edu.utfpr.pb.pw44s.server.service.IOrderItemsService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class OrderItemsServiceImpl extends CrudServiceImpl<OrderItems, Long> implements IOrderItemsService {
@@ -17,5 +20,9 @@ public class OrderItemsServiceImpl extends CrudServiceImpl<OrderItems, Long> imp
     @Override
     protected JpaRepository<OrderItems, Long> getRepository() {
         return this.orderItemsRepository;
+    }
+
+    public List<OrderItems> findOrderItemsWithOrder(Order order) {
+        return orderItemsRepository.findByOrder(order);
     }
 }

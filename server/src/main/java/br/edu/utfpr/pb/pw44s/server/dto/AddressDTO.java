@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.pw44s.server.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -12,8 +13,6 @@ public class AddressDTO {
     private Long id;
 
     @NotNull
-    private UserDTO user;
-
     @Size(min = 2, max = 100)
     private String street;
 
@@ -21,8 +20,10 @@ public class AddressDTO {
     private String complement;
 
     @NotNull
+    @Size(max = 10)
     private String cep;
 
+    @NotNull
     @Size(min = 2, max = 100)
     private String city;
 

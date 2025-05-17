@@ -35,6 +35,14 @@ public class UserController extends CrudController<User, UserDTO, Long>{
         return this.modelMapper;
     }
 
+    @Override
+    public ResponseEntity<UserDTO> create(UserDTO entity) {
+        userService.save(modelMapper.map(entity, User.class));
+        entity.setPassword(null);
+
+        return ResponseEntity.ok(entity);
+    }
+
     @PostMapping("/new")
     public ResponseEntity<GenericResponse> createUser(@RequestBody @Valid UserDTO entity) {
         userService.save(modelMapper.map(entity, User.class));

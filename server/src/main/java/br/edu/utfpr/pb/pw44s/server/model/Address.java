@@ -28,7 +28,7 @@ public class Address {
     private String complement;
 
     @NotNull
-    @Column(length = 9)
+    @Size(max = 10)
     private String cep;
 
     @NotNull

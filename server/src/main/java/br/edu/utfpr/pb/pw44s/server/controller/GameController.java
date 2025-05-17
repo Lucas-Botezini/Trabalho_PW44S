@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("game")
 public class GameController extends CrudController<Game, GameDTO, Long> {
@@ -33,9 +35,19 @@ public class GameController extends CrudController<Game, GameDTO, Long> {
 
     @Override
     public ResponseEntity<GameDTO> create(GameDTO entity) {
-        Game game = gameService.saveGame(entity, modelMapper);
-        entity = modelMapper.map(game, GameDTO.class);
-        return ResponseEntity.ok(entity);
+        return ResponseEntity.ok(gameService.saveGame(entity));
+    }
+
+    @Override
+    public ResponseEntity<List<GameDTO>> findAll() {
+        return ResponseEntity.ok(gameService.findAllWithGenre());
+    }
+
+    @Override
+    public ResponseEntity<GameDTO> findOne(Long id) {
+        GameDTO gameDTO = gameService.findOneWithGenre(id);
+
+        return ResponseEntity.ok(gameDTO);
     }
 
 }

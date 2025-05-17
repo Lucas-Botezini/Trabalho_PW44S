@@ -1,0 +1,386 @@
+type: collection.insomnia.rest/5.0
+name: pw44s
+meta:
+  id: wrk_1c8963b2641f48dbbd2f7f0c7f5ad6d3
+  created: 1743549438344
+  modified: 1743549438344
+collection:
+  - name: Trabalho_PW44S
+    meta:
+      id: fld_0ac0758ee9c44dd7a7812e82bfa37b8d
+      created: 1746851232838
+      modified: 1746855634931
+      sortKey: -1746851232838
+    children:
+      - name: User
+        meta:
+          id: fld_3ba57ff67751421897fa6dff2e8695d3
+          created: 1746856218498
+          modified: 1746856218498
+          sortKey: -1746856218498
+        children:
+          - url: http://localhost:8080/user
+            name: New User
+            meta:
+              id: req_f52735d6d36f494e93bac8eaf9119c5d
+              created: 1746851268126
+              modified: 1747364177139
+              isPrivate: false
+              sortKey: -1746856353002
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"username": "newUser",
+                  "nickname": "Novo Usuário",
+                  "email": "test@gmail.com",
+                	"password": "P4assword"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            authentication:
+              type: bearer
+              prefix: Bearer
+              token: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNzQ3NDQ5MTE1fQ.gwO4T92xLC9cuw0_Ckz9zPwH_2CN2K9Vknkr-zBf9NR8pxN7Cs7cBCaE-vfBxoAFZyxQaaxxZsFwKy8HetCaHg
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/user
+            name: List Users
+            meta:
+              id: req_1baf8f9384d743c39e35a36434047d1f
+              created: 1746971046591
+              modified: 1747364191267
+              isPrivate: false
+              sortKey: -1746971046591
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            authentication:
+              type: bearer
+              prefix: Bearer
+              token: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNzQ3NDQ5MTE1fQ.gwO4T92xLC9cuw0_Ckz9zPwH_2CN2K9Vknkr-zBf9NR8pxN7Cs7cBCaE-vfBxoAFZyxQaaxxZsFwKy8HetCaHg
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Genre
+        meta:
+          id: fld_ccf70b64417645b1b9a7d477e3eeffc8
+          created: 1746856229642
+          modified: 1746856229642
+          sortKey: -1746856229642
+        children:
+          - url: http://localhost:8080/genre
+            name: Create Genre
+            meta:
+              id: req_e783c9d4ef304daaab7e17a84323a038
+              created: 1746856249718
+              modified: 1746970889455
+              isPrivate: false
+              sortKey: -1746856249718
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"name": "Novo Gênero"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/genre
+            name: List Genres
+            meta:
+              id: req_0b56443698254365946cdb35e455d13b
+              created: 1746856266450
+              modified: 1746856364641
+              isPrivate: false
+              sortKey: -1746856266450
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Game
+        meta:
+          id: fld_6c035e680c244f9e85d0bed42df2c528
+          created: 1746856236816
+          modified: 1746856236816
+          sortKey: -1746856236816
+        children:
+          - url: http://localhost:8080/game
+            name: List Games
+            meta:
+              id: req_c7780860e70a46268e16485849863f56
+              created: 1746883161293
+              modified: 1746970968282
+              isPrivate: false
+              sortKey: -1746883405364
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/game
+            name: Create Game
+            meta:
+              id: req_cc0eea6dde9346389782d96f8928fdac
+              created: 1746883414811
+              modified: 1746970938951
+              isPrivate: false
+              sortKey: -1746883405464
+            method: POST
+            body:
+              mimeType: application/json
+              text: >
+                {
+                  "name": "Novo Jogo",
+                  "description": "A vast fantasy world full of danger and mystery.",
+                  "price": 1,
+                	"image": "img",
+                  "genres": [
+                    { "id": 1, "name": "Action" },
+                    { "id": 2, "name": "Fantasy" },
+                    { "id": 3, "name": "Adventure" }
+                  ]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Order
+        meta:
+          id: fld_36a8ca15ea534e778e59bf338fc48471
+          created: 1746971123429
+          modified: 1746971125237
+          sortKey: -1746856236916
+        children:
+          - url: http://localhost:8080/order
+            name: New Order
+            meta:
+              id: req_1f52cb3d9ad94f1bb24b642390f28042
+              created: 1746971129432
+              modified: 1747090888925
+              isPrivate: false
+              sortKey: -1746971129432
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "paymentMethod": "PIX",
+                  "orderItems": [
+                    {
+                      "game": {
+                				"id": 1
+                			},
+                      "amount": 3
+                    },
+                    {
+                      "game": {
+                				"id": 4
+                			},
+                      "amount": 2
+                    }
+                  ]
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            authentication:
+              type: bearer
+              prefix: Bearer
+              token: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJuZXdVc2VyIiwiZXhwIjoxNzQ3MTc3Mjc5fQ.VpSo7qRAjLn2NCkJV_kr8Dq7_BGN7hkCxx9iAI1jYBiMZxZaHXBLkBvLpStL3hqCQ7Rp4XLl1ZnHhaD5-OX3pA
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/order
+            name: List Orders
+            meta:
+              id: req_d141c969f6584fa1bc6e83a2a7d6aa5e
+              created: 1746971338408
+              modified: 1747090685367
+              isPrivate: false
+              sortKey: -1746971338408
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            authentication:
+              type: bearer
+              prefix: Bearer
+              token: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNzQ3MTc2MzIyfQ.rwwauG1wdbI_0rrcyaTJmBtFGNh80aqpDko0aHosH8YAr4T8-1st6Dr5qqaob1FOMmdE3jn_7jywQt9Xx_FOnA
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Address
+        meta:
+          id: fld_bea18f61729548c59ce9759710aedd3b
+          created: 1747006395572
+          modified: 1747090608095
+          sortKey: -1747006395572
+        children:
+          - url: http://localhost:8080/address
+            name: New Address
+            meta:
+              id: req_bd4e293c74604f02b0b079cc4da58dcb
+              created: 1747006400567
+              modified: 1747441466892
+              isPrivate: false
+              sortKey: -1747006400567
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                  "street": "Rua das Flores",
+                  "complement": "Apartamento 202",
+                  "cep": "12345-678",
+                  "city": "Curitiba",
+                  "state": "Paraná"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNzQ3NDQ5MTE1fQ.gwO4T92xLC9cuw0_Ckz9zPwH_2CN2K9Vknkr-zBf9NR8pxN7Cs7cBCaE-vfBxoAFZyxQaaxxZsFwKy8HetCaHg
+              prefix: Bearer
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/address
+            name: List Address
+            meta:
+              id: req_f5b5860ec2364110a59ec40979e0d48e
+              created: 1747090610190
+              modified: 1747362727361
+              isPrivate: false
+              sortKey: -1747090610190
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNzQ3NDQ5MTE1fQ.gwO4T92xLC9cuw0_Ckz9zPwH_2CN2K9Vknkr-zBf9NR8pxN7Cs7cBCaE-vfBxoAFZyxQaaxxZsFwKy8HetCaHg
+              prefix: Bearer
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - url: http://localhost:8080/login
+        name: Login
+        meta:
+          id: req_e4ca12be3191474abc87160fe556d37c
+          created: 1746852951589
+          modified: 1747091956566
+          isPrivate: false
+          sortKey: -1746851428047
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"username": "test",
+            	"password": "123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      token: AAA
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_ed24dd228ff9aa7f6c39e5fc347664b4fd541649
+    created: 1743549438357
+    modified: 1743549438357
+environments:
+  name: Base Environment
+  meta:
+    id: env_ed24dd228ff9aa7f6c39e5fc347664b4fd541649
+    created: 1743549438352
+    modified: 1743549438352
+    isPrivate: false

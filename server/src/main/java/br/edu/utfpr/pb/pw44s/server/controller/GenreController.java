@@ -27,6 +27,6 @@ public class GenreController extends CrudController<Genre, GenreDTO,Long> {
 
     @Override
     protected ModelMapper getModelMapper() {
-        return modelMapper;
+        return this.modelMapper;
     }
 }

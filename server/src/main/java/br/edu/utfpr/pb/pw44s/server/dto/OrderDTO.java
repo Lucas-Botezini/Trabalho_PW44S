@@ -14,11 +14,7 @@ import java.util.List;
 @NoArgsConstructor @AllArgsConstructor
 public class OrderDTO {
     private Long id;
-
     private LocalDateTime date;
-
-    @NotNull
-    private Long user_id;
 
     private BigDecimal totalPrice;
 
