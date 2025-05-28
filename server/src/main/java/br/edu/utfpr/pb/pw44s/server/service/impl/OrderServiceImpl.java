@@ -97,7 +97,9 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
     }
 
     public List<OrderDTO> findAllOrders() {
-        return orderRepository.findAll().stream()
+        return orderRepository
+                .findAllByUser(userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()))
+                .stream()
                 .map(order -> {
                     OrderDTO orderDTO = modelMapper.map(order, OrderDTO.class);
                     orderDTO.setOrderItems(findOrderItemsDtoByOrder(order));
