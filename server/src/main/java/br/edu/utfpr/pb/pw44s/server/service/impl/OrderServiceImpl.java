@@ -68,11 +68,6 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
             orderItemsService.save(items1);
         });
 
-        BigDecimal total = items.stream()
-                .map(i -> i.getUnitPrice().multiply(BigDecimal.valueOf(i.getAmount())))
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-
-        order.setTotalPrice(total);
         order = orderRepository.save(order);
 
         dto = modelMapper.map(order, OrderDTO.class);

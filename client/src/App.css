@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+#root {
+  max-width: 1280px;
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.no-card-body-padding .p-card-body, .no-card-body-padding  .p-card-content {
+  padding: 0.5rem !important; /* ou o valor desejado */
+  height: 100%;
+}
+
+.p-inputnumber button, .p-inputnumber .p-inputnumber-input, .delete-button {
+  width: 3rem;
+  height: 2rem;
+  padding: 0;
+  text-align: center;
+  align-content: center;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.p-password > .p-icon-field {
+  width: 100%;
+}
+
+/* Estilo padrão para o Dialog */
+.register-modal-dialog.p-dialog {
+    width: 50vw; /* Padrão para telas maiores */
+}
+
+/* Media query para telas menores (ex: tablets e celulares) */
+@media screen and (max-width: 992px) { /* Exemplo: para telas até 992px de largura */
+    .register-modal-dialog.p-dialog {
+        width: 80vw; /* Ocupa mais espaço em telas menores */
+    }
+}
+
+/* Outra media query para telas muito pequenas (ex: celulares) */
+@media screen and (max-width: 768px) { /* Exemplo: para telas até 768px de largura */
+    .register-modal-dialog.p-dialog {
+        width: 95vw; /* Quase tela cheia em celulares */
+    }
+}

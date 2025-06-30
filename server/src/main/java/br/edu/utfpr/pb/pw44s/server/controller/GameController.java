@@ -1,11 +1,14 @@
 package br.edu.utfpr.pb.pw44s.server.controller;
 
 import br.edu.utfpr.pb.pw44s.server.dto.GameDTO;
+import br.edu.utfpr.pb.pw44s.server.dto.GenreDTO;
 import br.edu.utfpr.pb.pw44s.server.model.Game;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import br.edu.utfpr.pb.pw44s.server.service.IGameService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -50,4 +53,10 @@ public class GameController extends CrudController<Game, GameDTO, Long> {
         return ResponseEntity.ok(gameDTO);
     }
 
+    @GetMapping("/genre/{genreId}")
+    public ResponseEntity<List<GameDTO>> findByGenre(@PathVariable Long genreId) {
+        GenreDTO genreDTO = new GenreDTO();
+        genreDTO.setId(genreId);
+        return ResponseEntity.ok(gameService.findByGenre(genreDTO));
+    }
 }

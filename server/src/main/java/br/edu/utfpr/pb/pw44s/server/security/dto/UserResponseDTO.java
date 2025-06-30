@@ -15,12 +15,12 @@ import java.util.Set;
 @Builder
 public class UserResponseDTO {
     private String username;
-    private String email;
+    private String nickname;
     private Set<AuthorityResponseDTO> authorities;
 
     public UserResponseDTO(User user) {
         this.username = user.getUsername();
-        this.email = user.getEmail();
+        this.nickname = user.getNickname();
         this.authorities = new HashSet<>();
         for (GrantedAuthority authority : user.getAuthorities()) {
             authorities.add( new AuthorityResponseDTO(authority.getAuthority()));

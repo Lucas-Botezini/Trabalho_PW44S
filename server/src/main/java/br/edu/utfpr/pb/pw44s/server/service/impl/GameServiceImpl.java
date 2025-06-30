@@ -82,4 +82,19 @@ public class GameServiceImpl extends CrudServiceImpl<Game,Long> implements IGame
         return gameDTO;
     }
 
+    @Override
+    public List<GameDTO> findByGenre(GenreDTO genreDTO) {
+        List<Game> games = gameRepository.findAllByGenreId(genreDTO.getId());
+
+        return games.stream().map(game -> {
+            GameDTO gameDTO = modelMapper.map(game, GameDTO.class);
+
+            List<GenreDTO> genres = gameGenreRepository.findByGame(game).stream()
+                    .map(gg -> modelMapper.map(gg.getGenre(), GenreDTO.class))
+                    .toList();
+
+            gameDTO.setGenres(genres);
+            return gameDTO;
+        }).toList();
+    }
 }

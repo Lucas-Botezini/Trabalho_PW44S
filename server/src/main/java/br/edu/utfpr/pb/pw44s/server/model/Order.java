@@ -21,6 +21,7 @@ public class Order {
     @NotNull
     private LocalDateTime date;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -29,4 +30,9 @@ public class Order {
 
     @NotNull
     private PaymentMethod paymentMethod;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 }

@@ -1,6 +1,8 @@
 package br.edu.utfpr.pb.pw44s.server.dto;
 
 import br.edu.utfpr.pb.pw44s.server.enums.PaymentMethod;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,8 +21,12 @@ public class OrderDTO {
     private BigDecimal totalPrice;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 
     @NotNull
     private List<OrderItemsDTO> orderItems;
+
+    @NotNull
+    private AddressDTO address;
 }
