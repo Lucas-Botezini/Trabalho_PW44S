@@ -86,7 +86,7 @@ const TopMenu: React.FC = () => {
       icon: "pi pi-box",
       items: genres.map((genre) => ({
         label: genre.name,
-        command: () => navigate(`/games/genre/${genre.id}`),
+        command: () => navigate(`/game/genre/${genre.id}`),
       })),
     },
   ];

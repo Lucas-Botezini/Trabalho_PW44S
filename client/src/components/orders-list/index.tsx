@@ -4,7 +4,7 @@ import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { Toast } from "primereact/toast";
 import { useEffect, useRef, useState } from "react";
-import { ProgressSpinner } from 'primereact/progressspinner'; // Importar ProgressSpinner
+import { ProgressSpinner } from 'primereact/progressspinner';
 
 interface OrdersModalProps {
     visible: boolean;

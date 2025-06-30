@@ -358,7 +358,7 @@ export const NewAddessModal = ({visible, onHide}: AddressModalProps) => {
                      maxLength: {
                         value: 200,
                         message: "O Complemento deve ter no máximo 200 caracteres.",
-                    }
+                     }
                   }}
                   render={({ field }) => (
                      <InputText

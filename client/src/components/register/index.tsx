@@ -42,6 +42,7 @@ export const RegisterModal = ({visible, onHide}: RegisterModalProps) => {
           detail: "Usuário cadastrado com sucesso.",
           life: 3000,
         });
+        reset();
         setTimeout(() => {onHide()}, 1000);
       } else {
         toast.current?.show({

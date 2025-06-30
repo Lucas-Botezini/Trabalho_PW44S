@@ -18,7 +18,7 @@ export function AppRoutes() {
         <Route path="/game" element={<GameListPage />} />
         <Route path="/game" element={<GameListPage />} />
         <Route path="/game/:gameId" element={<GamePage />} />
-        <Route path="/games/genre/:genreId" element={<GameByGenrePage />} />
+        <Route path="/game/genre/:genreId" element={<GameByGenrePage />} />
 
         {/* protected routes */}
         <Route element={<RequireAuth />}>
